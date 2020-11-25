@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -82,7 +83,7 @@ class Search_News_Fragment : Fragment(R.layout.fragment_search_news) {
                 is Resource.Error->{
                     hideProgressBar()
                     response.message?.let{it ->
-                        Log.e(TAG,"An error occured: $it")
+                        Toast.makeText(activity,"Error Occured: $it", Toast.LENGTH_SHORT).show()
                     }
                 }
                 is Resource.Loading->{
